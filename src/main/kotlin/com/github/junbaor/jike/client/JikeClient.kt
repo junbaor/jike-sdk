@@ -3,6 +3,8 @@ package com.github.junbaor.jike.client
 import com.github.junbaor.jike.api.JikeApi
 import com.github.junbaor.jike.api.JikeApiFactory.Companion.create
 import com.github.junbaor.jike.exception.NoLoginException
+import com.github.junbaor.jike.model.FollowingUpdatesRequest
+import com.github.junbaor.jike.model.FollowingUpdatesResponse
 import com.github.junbaor.jike.model.PasswordLoginRequest
 import com.github.junbaor.jike.model.ProfileResponse
 import com.github.junbaor.jike.persistence.DiskTokenPersistence
@@ -31,4 +33,13 @@ class JikeClient constructor(
   fun profile(): ProfileResponse? {
     return jikeApi.profile()
   }
+
+  fun followingUpdates(limit: Int): FollowingUpdatesResponse? {
+    return jikeApi.followingUpdates(FollowingUpdatesRequest(limit, null))
+  }
+
+  fun followingUpdates(limit: Int, loadMoreKey: FollowingUpdatesResponse.LoadMoreKey?): FollowingUpdatesResponse? {
+    return jikeApi.followingUpdates(FollowingUpdatesRequest(limit, loadMoreKey))
+  }
+
 }

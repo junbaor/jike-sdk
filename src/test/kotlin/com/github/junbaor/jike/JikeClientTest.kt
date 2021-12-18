@@ -10,5 +10,8 @@ internal class JikeClientTest {
     val jike = JikeClient("+86", "1318881234", "password")
     val profile = jike.profile()
     Assertions.assertNotNull(profile)
+
+    val followingUpdates = jike.followingUpdates(10)
+    Assertions.assertNotNull(followingUpdates)
   }
 }
