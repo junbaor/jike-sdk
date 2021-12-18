@@ -1,0 +1,20 @@
+<Configuration name="Config" status="ERROR" monitorInterval="5">
+    <Properties>
+        <Property name="DATE_PATTERN">MM-dd HH:mm:ss.SSS</Property>
+        <Property name="CONSOLE_COLOR_PATTERN">
+            FATAL=Bright Red, ERROR=Bright Red, WARN=Bright Yellow,
+            INFO=Bright blue, DEBUG=Bright White, TRACE=Bright White
+        </Property>
+        <Property name="LOG_PATTERN">%d{${DATE_PATTERN}} %-5p %C:%L - %m%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console">
+            <PatternLayout pattern="%highlight{${LOG_PATTERN}}{${CONSOLE_COLOR_PATTERN}}"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
