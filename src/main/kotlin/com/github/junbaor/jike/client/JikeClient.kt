@@ -1,48 +1,34 @@
-package com.github.junbaor.jike.client;
+package com.github.junbaor.jike.client
 
-import com.github.junbaor.jike.api.JikeApi;
-import com.github.junbaor.jike.api.JikeApiFactory;
-import com.github.junbaor.jike.exception.NoLoginException;
-import com.github.junbaor.jike.model.PasswordLoginRequest;
-import com.github.junbaor.jike.model.ProfileResponse;
-import com.github.junbaor.jike.persistence.DiskTokenPersistence;
-import com.github.junbaor.jike.persistence.TokenPersistence;
+import com.github.junbaor.jike.api.JikeApi
+import com.github.junbaor.jike.api.JikeApiFactory.Companion.create
+import com.github.junbaor.jike.exception.NoLoginException
+import com.github.junbaor.jike.model.PasswordLoginRequest
+import com.github.junbaor.jike.model.ProfileResponse
+import com.github.junbaor.jike.persistence.DiskTokenPersistence
+import com.github.junbaor.jike.persistence.TokenPersistence
 
-public class JikeClient {
+class JikeClient constructor(
+  val areaCode: String,
+  val mobile: String,
+  private val password: String,
+  val tokenStore: TokenPersistence = DiskTokenPersistence(
+    System.getProperty("user.home") + "/.jike/" + mobile + ".ini"
+  )
+) {
+  val jikeApi: JikeApi = create(this)
 
-  public final String areaCode;
-  public final String mobile;
-  private final String password;
-  public final TokenPersistence tokenStore;
-
-  public final JikeApi jikeApi;
-
-  public JikeClient(String areaCode, String mobile, String password) {
-    this(areaCode, mobile, password, new DiskTokenPersistence(System.getProperty("user.home") + "/.jike/" + mobile + ".ini"));
-  }
-
-  public JikeClient(String areaCode, String mobile, String password, TokenPersistence tokenStore) {
-    this.areaCode = areaCode;
-    this.mobile = mobile;
-    this.password = password;
-    this.tokenStore = tokenStore;
-    jikeApi = JikeApiFactory.Companion.create(this);
-
-    init();
-  }
-
-  public void init() {
+  init {
     try {
-      this.jikeApi.profile();
-    } catch (NoLoginException e) {
-      PasswordLoginRequest request = new PasswordLoginRequest(areaCode, mobile, password);
-      this.jikeApi.loginWithPhoneAndPassword(request);
-      this.jikeApi.profile();
+      jikeApi.profile()
+    } catch (e: NoLoginException) {
+      val request = PasswordLoginRequest(areaCode, mobile, password)
+      jikeApi.loginWithPhoneAndPassword(request)
+      jikeApi.profile()
     }
   }
 
-  public ProfileResponse profile() {
-    return jikeApi.profile();
+  fun profile(): ProfileResponse? {
+    return jikeApi.profile()
   }
-
 }
