@@ -1,4 +1,4 @@
-package io.github.junbaor.jike.exception
+package com.github.junbaor.jike.exception
 
 class NoLoginException : RuntimeException {
   constructor() {}

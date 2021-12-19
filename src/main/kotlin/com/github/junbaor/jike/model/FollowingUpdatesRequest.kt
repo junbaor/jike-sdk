@@ -1,4 +1,4 @@
-package io.github.junbaor.jike.model
+package com.github.junbaor.jike.model
 
 data class FollowingUpdatesRequest(
   var limit: Int,

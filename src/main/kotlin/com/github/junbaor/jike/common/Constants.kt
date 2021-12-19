@@ -1,4 +1,4 @@
-package io.github.junbaor.jike.common
+package com.github.junbaor.jike.common
 
 object Constants {
   const val DEVICE_ID = "4653BFCE-9D54-471C-809C-422AC240DA7B"

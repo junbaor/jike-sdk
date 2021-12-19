@@ -1,7 +1,7 @@
-package io.github.junbaor.jike.persistence
+package com.github.junbaor.jike.persistence
 
-import io.github.junbaor.jike.common.Constants
-import io.github.junbaor.jike.model.Token
+import com.github.junbaor.jike.common.Constants
+import com.github.junbaor.jike.model.Token
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
