@@ -1,4 +1,4 @@
-package com.github.junbaor.jike.utils
+package io.github.junbaor.jike.utils
 
 import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.core.JsonProcessingException

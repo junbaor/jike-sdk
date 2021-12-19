@@ -1,13 +1,13 @@
-package com.github.junbaor.jike.api
+package io.github.junbaor.jike.api
 
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import com.github.junbaor.jike.client.JikeClient
-import com.github.junbaor.jike.common.Constants
-import com.github.junbaor.jike.common.Constants.DEVICE_ID
-import com.github.junbaor.jike.common.Constants.JIKE_HOST
-import com.github.junbaor.jike.common.Constants.REFRESH_TOKEN_URL
-import com.github.junbaor.jike.exception.NoLoginException
-import com.github.junbaor.jike.model.Token
+import io.github.junbaor.jike.client.JikeClient
+import io.github.junbaor.jike.common.Constants
+import io.github.junbaor.jike.common.Constants.DEVICE_ID
+import io.github.junbaor.jike.common.Constants.JIKE_HOST
+import io.github.junbaor.jike.common.Constants.REFRESH_TOKEN_URL
+import io.github.junbaor.jike.exception.NoLoginException
+import io.github.junbaor.jike.model.Token
 import com.moczul.ok2curl.CurlInterceptor
 import feign.Feign
 import feign.Retryer
