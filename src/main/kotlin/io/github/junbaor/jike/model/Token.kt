@@ -1,4 +1,4 @@
-package com.github.junbaor.jike.model
+package io.github.junbaor.jike.model
 
 data class Token(
   val accessToken: String?,

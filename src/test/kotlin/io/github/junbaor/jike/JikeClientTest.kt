@@ -1,6 +1,6 @@
-package com.github.junbaor.jike
+package io.github.junbaor.jike
 
-import com.github.junbaor.jike.client.JikeClient
+import io.github.junbaor.jike.client.JikeClient
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 

@@ -1,14 +1,14 @@
-package com.github.junbaor.jike.client
+package io.github.junbaor.jike.client
 
-import com.github.junbaor.jike.api.JikeApi
-import com.github.junbaor.jike.api.JikeApiFactory.Companion.create
-import com.github.junbaor.jike.exception.NoLoginException
-import com.github.junbaor.jike.model.FollowingUpdatesRequest
-import com.github.junbaor.jike.model.FollowingUpdatesResponse
-import com.github.junbaor.jike.model.PasswordLoginRequest
-import com.github.junbaor.jike.model.ProfileResponse
-import com.github.junbaor.jike.persistence.DiskTokenPersistence
-import com.github.junbaor.jike.persistence.TokenPersistence
+import io.github.junbaor.jike.api.JikeApi
+import io.github.junbaor.jike.api.JikeApiFactory.Companion.create
+import io.github.junbaor.jike.exception.NoLoginException
+import io.github.junbaor.jike.model.FollowingUpdatesRequest
+import io.github.junbaor.jike.model.FollowingUpdatesResponse
+import io.github.junbaor.jike.model.PasswordLoginRequest
+import io.github.junbaor.jike.model.ProfileResponse
+import io.github.junbaor.jike.persistence.DiskTokenPersistence
+import io.github.junbaor.jike.persistence.TokenPersistence
 
 class JikeClient constructor(
   val areaCode: String,

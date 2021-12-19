@@ -1,10 +1,10 @@
-package com.github.junbaor.jike.api
+package io.github.junbaor.jike.api
 
-import com.github.junbaor.jike.common.Constants
-import com.github.junbaor.jike.common.Constants.JSON_UTF_8
-import com.github.junbaor.jike.model.*
 import feign.Headers
 import feign.RequestLine
+import io.github.junbaor.jike.common.Constants
+import io.github.junbaor.jike.common.Constants.JSON_UTF_8
+import io.github.junbaor.jike.model.*
 
 interface JikeApi {
 
@@ -21,6 +21,5 @@ interface JikeApi {
   @Headers(JSON_UTF_8)
   @RequestLine("POST /1.0/personalUpdate/followingUpdates")
   fun followingUpdates(body: FollowingUpdatesRequest): FollowingUpdatesResponse?
-
 
 }
