@@ -9,6 +9,29 @@
 
   <name>jike-sdk</name>
   <description>jike-sdk</description>
+  <url>https://github.com/junbaor/jike-sdk</url>
+
+  <licenses>
+    <license>
+      <name>GNU GENERAL PUBLIC LICENSE</name>
+      <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>junbaor</name>
+      <email>junbaor@gmail.com</email>
+    </developer>
+  </developers>
+
+  <scm>
+    <url>https://github.com/junbaor/jike-sdk</url>
+    <connection>scm:git:git@github.com:junbaor/jike-sdk.git</connection>
+    <developerConnection>scm:git:git@github.com:junbaor/jike-sdk.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
 
   <properties>
     <java.version>11</java.version>
@@ -170,14 +193,46 @@
           <target>${java.version}</target>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.2.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.3.1</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 
   <distributionManagement>
+    <snapshotRepository>
+      <id>oss</id>
+      <name>OSS Snapshots Repository</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
     <repository>
-      <id>github</id>
-      <name>GitHub OWNER Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/junbaor/jike-sdk</url>
+      <id>oss</id>
+      <name>OSS Staging Repository</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
 
