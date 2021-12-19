@@ -5,7 +5,7 @@
 
   <groupId>io.github.junbaor</groupId>
   <artifactId>jike-sdk</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
 
   <name>jike-sdk</name>
   <description>jike-sdk</description>
